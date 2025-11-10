@@ -1,0 +1,16 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Outputs
+artifacts/
+!artifacts/*.csv
+!artifacts/examples/*.png
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Data
+data/
