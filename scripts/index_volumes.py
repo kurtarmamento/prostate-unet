@@ -2,17 +2,19 @@
 # 'B006_Week0_LFOV.nii.gz'  <->  'B006_Week0_SEMANTIC.nii.gz'
 
 import os, glob, re, csv, sys
+
 DATA_ROOT = sys.argv[1] if len(sys.argv) > 1 else "."
-MR  = os.path.join(DATA_ROOT, "semantic_MRs")
-LBL = os.path.join(DATA_ROOT, "semantic_labels_only")
+
+MR  = os.path.abspath(os.path.join(DATA_ROOT, "semantic_MRs"))
+LBL = os.path.abspath(os.path.join(DATA_ROOT, "semantic_labels_only"))
 
 def key(p: str):
     # Extract 'B006_Week0' from filenames like 'B006_Week0_LFOV.nii.gz'
     m = re.match(r"([A-Za-z0-9]+_Week\d+)_", os.path.basename(p))
     return m.group(1) if m else None
 
-imgs = {key(p): p for p in glob.glob(os.path.join(MR, "*.nii.gz")) if key(p)}
-lbls = {key(p): p for p in glob.glob(os.path.join(LBL, "*.nii.gz")) if key(p)}
+imgs = {key(p): os.path.abspath(p) for p in glob.glob(os.path.join(MR, "*.nii.gz")) if key(p)}
+lbls = {key(p): os.path.abspath(p) for p in glob.glob(os.path.join(LBL, "*.nii.gz")) if key(p)}
 
 keys = sorted(set(imgs) & set(lbls))
 

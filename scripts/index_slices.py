@@ -18,9 +18,15 @@ def grab(split: str):
     lbls = glob.glob(os.path.join(ROOT, f"keras_slices_seg_{split}", "seg_*.nii.gz"))
 
     # 'case_004_week_0_slice_2.nii.gz' -> '004_week_0_slice_2'
-    m_img = {re.sub(r"^case_", "", os.path.basename(p)).replace(".nii.gz", ""): p for p in imgs}
+    m_img = {
+        re.sub(r"^case_", "", os.path.basename(p)).replace(".nii.gz", ""): os.path.abspath(p)
+        for p in imgs
+    }
     # 'seg_004_week_0_slice_2.nii.gz'  -> '004_week_0_slice_2'
-    m_lbl = {re.sub(r"^seg_", "", os.path.basename(p)).replace(".nii.gz", ""): p for p in lbls}
+    m_lbl = {
+        re.sub(r"^seg_", "", os.path.basename(p)).replace(".nii.gz", ""): os.path.abspath(p)
+        for p in lbls
+    }
 
     # Intersect keys to keep only well-formed pairs
     for k in sorted(set(m_img) & set(m_lbl)):
