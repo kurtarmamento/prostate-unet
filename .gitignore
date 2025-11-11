@@ -5,9 +5,13 @@ __pycache__/
 .idea/
 
 # Outputs
-artifacts/
 !artifacts/*.csv
 !artifacts/examples/*.png
+artifacts/cache/
+artifacts/examples/
+artifacts/*.png
+artifacts/splits_*.csv
+artifacts/cache_*.csv
 
 # OS cruft
 .DS_Store
@@ -15,3 +19,8 @@ Thumbs.db
 
 # Data
 data/
+*.nii
+*.nii.gz
+*.npz
+*.mha
+*.nrrd
