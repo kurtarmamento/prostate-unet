@@ -1,0 +1,11 @@
+{
+  "commit": "<fill after commit>",
+  "splits_csv": "artifacts/cache_splits.csv",
+  "crop_size": 256,
+  "k_slices": 5,
+  "base_ch": 32,
+  "loss": "0.3*bce + 0.7*dice",
+  "lr": 0.001,
+  "postproc": "threshold sweep (0.3-0.6) + LCC",
+  "val_vol_dice_best": 0.79
+}

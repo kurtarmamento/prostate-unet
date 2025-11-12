@@ -12,6 +12,7 @@ artifacts/examples/
 artifacts/*.png
 artifacts/splits_*.csv
 artifacts/cache_*.csv
+artifacts/checkpoints/
 
 # OS cruft
 .DS_Store
