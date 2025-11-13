@@ -3,16 +3,24 @@
 __pycache__/
 *.pyc
 .idea/
+*.pyo
+*.pyd
+*.log
+.env
 
 # Outputs
-!artifacts/*.csv
-!artifacts/examples/*.png
 artifacts/cache/
 artifacts/examples/
 artifacts/*.png
 artifacts/splits_*.csv
 artifacts/cache_*.csv
 artifacts/checkpoints/
+artifacts/nifti_out/
+artifacts/preds_*/**/*.npz
+# Machine-specific manifests (contain absolute paths)
+artifacts/splits_volumes.csv
+artifacts/cache_volumes.csv
+artifacts/cache_slices.csv
 
 # OS cruft
 .DS_Store
@@ -25,3 +33,22 @@ data/
 *.npz
 *.mha
 *.nrrd
+
+# Raw/private data
+semantic_MRs/
+semantic_labels_only/
+
+
+# Keep small, useful evaluation summaries
+!artifacts/preds_val/metrics_val.csv
+!artifacts/preds_val/summary_val.json
+!artifacts/preds_test/metrics_test.csv
+!artifacts/preds_test/summary_test.json
+!artifacts/run_meta.json
+!artifacts/previews/
+!artifacts/*.csv
+!artifacts/examples/*.png
+
+
+
+

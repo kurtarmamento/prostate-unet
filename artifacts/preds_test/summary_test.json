@@ -1,0 +1,8 @@
+{
+  "split": "test",
+  "num_vols": 39,
+  "threshold_fixed": 0.5,
+  "best_global_threshold": 0.3,
+  "best_global_mean_dice": 0.5155,
+  "lcc": true
+}
