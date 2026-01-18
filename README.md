@@ -17,6 +17,15 @@ artifacts/               # generated: cache, preds, previews, checkpoints, etc.
 ```
 > If your prostate is a specific label (e.g. **5**), pass `--label-values 5` during preprocessing.
 
+
+## What this demonstrates
+
+- End-to-end ML pipeline: preprocess → train → full-volume inference → evaluation → export (NIfTI)
+- Reproducibility-minded workflow: cached preprocessing artifacts + scripted entry points
+- Practical deployment constraints: runs on CPU/CUDA and AMD on Windows via DirectML
+- Medical imaging fundamentals: resampling, bbox cropping, threshold sweeps, optional largest-connected-component post-process
+
+
 ## Quick start (Windows/PowerShell shown)
 
 ### 1) Preprocess volumes (cache cropped volumes)
@@ -81,6 +90,9 @@ python scripts\export_nifti.py ^
 |  Val  |   0.30    |  ✅  |   0.79    |
 |  Test |   0.30    |  ✅  |   0.52    |
 ```
+
+> Dice is computed over full-volume inference on the held-out split using the selected threshold (val-selected) and optional LCC post-processing.
+
 
 ## Repo structure
 ```

@@ -1,11 +1,41 @@
 {
-  "commit": "<fill after commit>",
-  "splits_csv": "artifacts/cache_splits.csv",
-  "crop_size": 256,
-  "k_slices": 5,
-  "base_ch": 32,
-  "loss": "0.3*bce + 0.7*dice",
-  "lr": 0.001,
-  "postproc": "threshold sweep (0.3-0.6) + LCC",
-  "val_vol_dice_best": 0.79
+  "created_at": "2025-11-13T14:38:08",
+  "version_tag": "v1.0-2p5D-baseline",
+  "checkpoint": "artifacts/checkpoints/unet2d_best.pth",
+  "eval": {
+    "threshold": 0.3,
+    "lcc": true,
+    "val_mean_dice": 0.79,
+    "test_mean_dice": 0.5155
+  },
+  "data": {
+    "target_spacing_mm": [
+      1.0,
+      1.0,
+      3.0
+    ],
+    "margin_mm": 10.0,
+    "label_values": [
+      5
+    ]
+  },
+  "model": {
+    "arch": "UNet2D",
+    "base_channels": 32,
+    "k_slices": 5,
+    "crop_size": 256
+  },
+  "train": {
+    "epochs": 800,
+    "batch_size": 12,
+    "optimizer": "AdamW",
+    "lr": 0.001,
+    "loss": "0.7*dice + 0.3*bce",
+    "device": "DirectML (AMD) with CPU fallbacks"
+  },
+  "paths": {
+    "splits_csv": "artifacts/cache_splits.csv",
+    "preds_val_dir": "artifacts/preds_val",
+    "preds_test_dir": "artifacts/preds_test"
+  }
 }
