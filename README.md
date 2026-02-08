@@ -1,5 +1,5 @@
 # prostate-unet (2.5D baseline)
-![CI](../../actions/workflows/ci.yml/badge.svg)
+[![CI](https://github.com/kurtarmamento/prostate-unet/actions/workflows/ci.yml/badge.svg?branch=chore%2Fpolish-repo)](https://github.com/kurtarmamento/prostate-unet/actions/workflows/ci.yml)
 
 Baseline 2D/2.5D U-Net for prostate segmentation on hip MRI volumes.  
 **Not for clinical use.** Research/education only.
