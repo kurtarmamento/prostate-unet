@@ -4,6 +4,9 @@
 Baseline 2D/2.5D U-Net for prostate segmentation on hip MRI volumes.  
 **Not for clinical use.** Research/education only.
 
+## WIP
+Currently fixing bug with image rendering incorrect regions
+
 ## TL;DR
 - Preprocess: RAS → resample to target spacing → bbox crop → cache `.npz`
 - Train: 2D or 2.5D (k-slice stacks), Dice + BCE (stable), DirectML/CUDA/CPU
