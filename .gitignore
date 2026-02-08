@@ -21,6 +21,9 @@ artifacts/preds_*/**/*.npz
 artifacts/splits_volumes.csv
 artifacts/cache_volumes.csv
 artifacts/cache_slices.csv
+artifacts/cache_splits.csv
+artifacts/cache_volumes.csv
+artifacts/splits_slices.csv
 
 # OS cruft
 .DS_Store
@@ -46,7 +49,6 @@ semantic_labels_only/
 !artifacts/preds_test/summary_test.json
 !artifacts/run_meta.json
 !artifacts/previews/
-!artifacts/*.csv
 !artifacts/examples/*.png
 
 

@@ -1,4 +1,5 @@
 # prostate-unet (2.5D baseline)
+[![CI](https://github.com/kurtarmamento/prostate-unet/actions/workflows/ci.yml/badge.svg?branch=chore%2Fpolish-repo)](https://github.com/kurtarmamento/prostate-unet/actions/workflows/ci.yml)
 
 Baseline 2D/2.5D U-Net for prostate segmentation on hip MRI volumes.  
 **Not for clinical use.** Research/education only.
@@ -26,7 +27,36 @@ artifacts/               # generated: cache, preds, previews, checkpoints, etc.
 - Medical imaging fundamentals: resampling, bbox cropping, threshold sweeps, optional largest-connected-component post-process
 
 
-## Quick start (Windows/PowerShell shown)
+## Quickstart (no dataset required)
+
+```powershell
+pip install -r requirements/requirements-cpu.txt
+pip install -r requirements/requirements-dev.txt
+python scripts/smoke_infer_dummy.py --out artifacts/previews/smoke_dummy.png
+pytest -q
+```
+
+This synthetic smoke test validates the end-to-end pipeline without requiring the dataset.
+
+## Requirements
+### Base requirements
+```powershell
+pip install -r requirements/requirements-dev.txt
+```
+### CPU
+```powershell
+pip install -r requirements/requirements-cpu.txt
+```
+### NVIDIA (CUDA 11.8)
+```powershell
+pip install -r requirements/requirements-nvidia-cu118.txt
+```
+### Windows DirectML (AMD / Intel GPU)
+```powershell
+pip install -r requirements/requirements-directml.txt
+```
+
+## Setup (Windows/PowerShell shown)
 
 ### 1) Preprocess volumes (cache cropped volumes)
 ```powershell
@@ -109,11 +139,6 @@ scripts/
   export_nifti.py
 artifacts/  # generated (cache, preds_*, previews, checkpoints, etc.)
 ```
-
-## Requirements
-- Python 3.11
-- PyTorch (CUDA or CPU). AMD on Windows supported via DirectML.
-- nibabel, numpy, scipy, tqdm (see `pyproject.toml` / `requirements.txt`)
 
 ## Disclaimer
 This repository is for research/education only and **must not** be used for diagnosis or patient care.
