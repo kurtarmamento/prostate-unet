@@ -49,7 +49,6 @@ semantic_labels_only/
 !artifacts/preds_test/summary_test.json
 !artifacts/run_meta.json
 !artifacts/previews/
-!artifacts/*.csv
 !artifacts/examples/*.png
 
 
